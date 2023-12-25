@@ -9,6 +9,7 @@ import models.Patient;
 //A singleton class 
 /* There is only one instance managing all patients across the application. */
 public class PatientRegistry {
+	
 	private static PatientRegistry instance = new PatientRegistry();
 	List<Patient> patientList = new ArrayList<>();
 	
@@ -31,8 +32,7 @@ public class PatientRegistry {
 
             // Adding the new patient to the ArrayList
             patientList.add(newPatient);
-        }
-        
+        }      
     }
 	
 	// A method to search for one patient by name

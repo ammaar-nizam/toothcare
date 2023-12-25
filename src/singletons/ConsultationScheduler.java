@@ -6,7 +6,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import models.ConsultationSchedule;
 
-
 // A singleton class 
 /* There is only one instance managing all consultation across the application. */
 public class ConsultationScheduler {

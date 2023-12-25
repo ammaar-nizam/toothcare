@@ -1,6 +1,5 @@
 package singletons;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,7 @@ public class FeeManager {
 	
 	private static FeeManager instance = new FeeManager();
 	List<OverallFee> feeList = new ArrayList<>();
-	
+
 	private FeeManager() {
 		feeList = new ArrayList<OverallFee>();
 	}
@@ -31,7 +30,6 @@ public class FeeManager {
             // Adding the new fee to the ArrayList
         	feeList.add(newOverallFee);
         	return newOverallFee;
-
     }
 	
 }

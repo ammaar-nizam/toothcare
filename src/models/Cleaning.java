@@ -12,6 +12,5 @@ public class Cleaning implements Treatment{
 	@Override
 	public double getTreatmentCost() {
 		return 5000.00;
-	}
-    
+	}  
 }

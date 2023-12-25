@@ -21,14 +21,7 @@ public class Invoice {
     private OverallFee overallFee;
     private Double amountDue;
     
-    // These properties are set to work with the Table View binding
- 	private final StringProperty fxInvoiceId = new SimpleStringProperty();
-    private final StringProperty fxAppointmentId = new SimpleStringProperty();
-    private final ObjectProperty<LocalDateTime> fxInvoiceDateAndTime = new SimpleObjectProperty<LocalDateTime>();
-    private final DoubleProperty fxTotalAmount = new SimpleDoubleProperty();
-    private final DoubleProperty fxAmountDue = new SimpleDoubleProperty();
-    private final BooleanProperty fxIsInvoicePaid = new SimpleBooleanProperty();
-
+    // Constructor
 	public Invoice(Appointment appointment, LocalDateTime invoiceDateAndTime, OverallFee overallFee,
 			Double amountDue) {
 		super();
@@ -38,6 +31,14 @@ public class Invoice {
 		this.overallFee = overallFee;
 		this.amountDue = amountDue;
 	}
+	
+	// These properties are set to work with the Table View binding
+	 	private final StringProperty fxInvoiceId = new SimpleStringProperty();
+	    private final StringProperty fxAppointmentId = new SimpleStringProperty();
+	    private final ObjectProperty<LocalDateTime> fxInvoiceDateAndTime = new SimpleObjectProperty<LocalDateTime>();
+	    private final DoubleProperty fxTotalAmount = new SimpleDoubleProperty();
+	    private final DoubleProperty fxAmountDue = new SimpleDoubleProperty();
+	    private final BooleanProperty fxIsInvoicePaid = new SimpleBooleanProperty();
 
 	// A method to create Invoice IDs
 	private String generateInvoiceId() {

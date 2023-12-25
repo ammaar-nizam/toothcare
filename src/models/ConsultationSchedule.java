@@ -12,12 +12,6 @@ public class ConsultationSchedule {
 	private String dayOfTheWeek;
 	private String openTime;
 	private String closeTime;
-
-	// These properties are set to work with the Table View binding
-	private final IntegerProperty fxScheduleId = new SimpleIntegerProperty();
-	private final StringProperty fxDayOfTheWeek = new SimpleStringProperty();
-	private final StringProperty fxOpenTime = new SimpleStringProperty();
-	private final StringProperty fxCloseTime = new SimpleStringProperty();
 	
 	// Constructor
 	public ConsultationSchedule(int scheduleId, String dayOfTheWeek, String openTime, String closeTime) {
@@ -27,6 +21,12 @@ public class ConsultationSchedule {
 		this.openTime = openTime;
 		this.closeTime = closeTime;
 	}
+	
+	// These properties are set to work with the Table View binding
+	private final IntegerProperty fxScheduleId = new SimpleIntegerProperty();
+	private final StringProperty fxDayOfTheWeek = new SimpleStringProperty();
+	private final StringProperty fxOpenTime = new SimpleStringProperty();
+	private final StringProperty fxCloseTime = new SimpleStringProperty();
 
 	// Getters and Setters
 	public int getScheduleId() {

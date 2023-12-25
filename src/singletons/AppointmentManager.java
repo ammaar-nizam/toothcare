@@ -21,30 +21,19 @@ public class AppointmentManager {
 	
 	private static AppointmentManager instance = new AppointmentManager();
 	private Map<String, Appointment> appointmentMap;
-
+    
 	// A private constructor to avoid creation of multiple objects at multiple places
 	private AppointmentManager() {
-        appointmentMap = new HashMap<>();
-    }
-    
-	// A method to get the only running instance of the object AppointmentManager
-    public static AppointmentManager getInstance(){
-    	if (instance == null)
-			instance = new AppointmentManager();
-	      return instance;
+		appointmentMap = new HashMap<>();
 	}
-    
-    // A method to check if the requested appointment slot is available before scheduling an appointment
-    public boolean isAppointmentSlotAvailable(LocalDate requestedDate, LocalTime requestedTime, Surgeon surgeon) {
-    	for (Appointment appointment : appointmentMap.values()) {
-            if (appointment.getSurgeon().equals(surgeon) && appointment.getAppointmentDate().equals(requestedDate) && 
-            		appointment.getStartTime().equals(requestedTime)) {
-                return false;
-            }
-        }
-    	return true;
-    }
-    
+
+	// A method to get the only running instance of the object AppointmentManager
+	public static AppointmentManager getInstance(){
+		if (instance == null)
+			instance = new AppointmentManager();
+		return instance;
+	}
+	
     // A method to schedule appointments and put them in an HashMap
     public void scheduleAppointment(Patient patient, Surgeon surgeon, LocalDate appointmentDate, String dayOfTheWeek,
 			LocalTime startTime, LocalTime endTime, LocalDateTime dateAndTimeAppointmentMade,
@@ -64,6 +53,17 @@ public class AppointmentManager {
     public Map<String, Appointment> getAppointmentsMap() {
         return Collections.unmodifiableMap(appointmentMap);
     }
+     
+     // A method to check if the requested appointment slot is available before scheduling an appointment
+     public boolean isAppointmentSlotAvailable(LocalDate requestedDate, LocalTime requestedTime, Surgeon surgeon) {
+     	for (Appointment appointment : appointmentMap.values()) {
+             if (appointment.getSurgeon().equals(surgeon) && appointment.getAppointmentDate().equals(requestedDate) && 
+             		appointment.getStartTime().equals(requestedTime)) {
+                 return false;
+             }
+         }
+     	return true;
+     }
     
     // Method to display details of a single appointment
     public void displayAppointmentDetails(Appointment appointment) {

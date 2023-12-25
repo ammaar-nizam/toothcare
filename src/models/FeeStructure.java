@@ -16,16 +16,16 @@ public class FeeStructure {
 	}
 		
 	// These methods will be inherited and then overriden in RegistrationFee and OverallFee classes
-	public void updateFeeDetails() {
-		// To be implemented
-	}
-		
-	// These methods will be inherited and then overriden in RegistrationFee and OverallFee classes
 	public double calculateTotalFee() {
 		// Calculation to be implemented
 	    return feeAmount;
 	}
-		
+	
+	// These methods will be inherited and then overriden in RegistrationFee and OverallFee classes
+	public void updateFeeDetails() {
+		// To be implemented
+	}
+	
 	// Getters and Setters
 	public Double getFeeAmount() {
 		return feeAmount;

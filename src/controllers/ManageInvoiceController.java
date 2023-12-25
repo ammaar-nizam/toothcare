@@ -31,10 +31,10 @@ public class ManageInvoiceController implements Initializable{
 	
 	public static final URL LOCATION = Main.class.getResource("../views/ManageInvoice.fxml");
 
+	FeeManager feeManager = FeeManager.getInstance();
 	InvoiceManager invoiceManager = InvoiceManager.getInstance();
 	AppointmentManager appointmentManager = AppointmentManager.getInstance();
-	FeeManager feeManager = FeeManager.getInstance();
-	
+
 	@FXML
     private Button buttonBack;
 

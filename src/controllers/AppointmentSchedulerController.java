@@ -38,16 +38,10 @@ import models.Surgeon;
 public class AppointmentSchedulerController implements Initializable {
 
 	public static final URL LOCATION = Main.class.getResource("../views/AppointmentScheduler.fxml");
-
-	PatientRegistry patientManager = PatientRegistry.getInstance();
-	AppointmentManager appointmentManager = AppointmentManager.getInstance();
-	ConsultationScheduler consultationScheduler = ConsultationScheduler.getInstance();
 	
-	ObservableList<ConsultationSchedule> consultationSchedules = FXCollections.observableArrayList(
-    		new ConsultationSchedule(1, "Monday", "6:00 PM", "9:00 PM"),
-            new ConsultationSchedule(2, "Wednesday", "6:00 PM", "9:00 PM"),
-            new ConsultationSchedule(3, "Saturday", "3:00 PM", "10:00 PM"),
-            new ConsultationSchedule(4, "Sunday", "3:00 PM", "10:00 PM"));
+	ConsultationScheduler consultationScheduler = ConsultationScheduler.getInstance();
+	AppointmentManager appointmentManager = AppointmentManager.getInstance();
+	PatientRegistry patientManager = PatientRegistry.getInstance();
 	
 	@FXML
     private Button buttonBack;
@@ -366,10 +360,20 @@ public class AppointmentSchedulerController implements Initializable {
             showAlert("First Name is required.");
             return false;
         }
+        
+        if(!fname.matches("^[a-zA-Z\\\\s]+$")) {
+            showAlert("First Name cannot contain digits or special characters.");
+            return false;
+        }
 
         // Validate Last Name
         if (lname == null || lname.isEmpty()) {
             showAlert("Last Name is required.");
+            return false;
+        }
+        
+        if(!lname.matches("^[a-zA-Z\\\\s]+$")) {
+            showAlert("Last Name cannot contain digits or special characters.");
             return false;
         }
 

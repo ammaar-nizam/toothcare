@@ -99,6 +99,10 @@ public class ViewAppointmentController implements Initializable{
 	
 	}
 	
+	private boolean containsPartialName(String fullNamePart, String partialName) {
+	    return fullNamePart.toLowerCase().contains(partialName.toLowerCase());
+	}
+	
 	public List<Appointment> searchAppointments(String appointmentId, String patientName, LocalDate searchDate,
 			LocalDate searchDateFrom, LocalDate searchDateTo) {
 		List<Appointment> searchResults = new ArrayList<>();
@@ -137,10 +141,6 @@ public class ViewAppointmentController implements Initializable{
 		return searchResults;
 	}
 	
-	private boolean containsPartialName(String fullNamePart, String partialName) {
-	    return fullNamePart.toLowerCase().contains(partialName.toLowerCase());
-	}
-	
 	@FXML
     public void buttonSearchClicked(ActionEvent event) {
 		String appointmentId = textFieldAppointmentId.getText();
@@ -156,33 +156,10 @@ public class ViewAppointmentController implements Initializable{
 		ObservableList<Appointment> filteredAppointments = FXCollections.observableArrayList(searchResults);
 		tableViewAppointment.setItems(filteredAppointments);
 		
-//		ObservableList<Appointment> filteredAppointments = FXCollections.observableArrayList();
-//		if(textFieldAppointmentId.getText() != null) {
-//			
-//			tableViewAppointment.setItems(filteredAppointments);
-//		}else if(textFieldPatientName.getText() != null) {
-//			
-//		}else if(datePickerSearchDate.getValue() != null) {
-//			
-//		}else if(datePickerSearchDateFrom.getValue() != null) {
-//			
-//		}else {
-//			showInformation("Something is wrong.");
-//		}
-//		tableViewAppointment.setItems(filteredAppointments);
-		
     }
 	
 	@FXML
 	public void OnTextFieldPatientNameMouseClicked(MouseEvent event) {
-//		String preSetAppointmentIdPrefix = "APPOINTMENT_";
-//		ChangeListener<String> listener = (observable, oldValue, newValue) -> {
-//	        if (!newValue.startsWith(preSetAppointmentIdPrefix)) {
-//	            textFieldAppointmentId.setText(preSetAppointmentIdPrefix + newValue);
-//	        }
-//	    };
-//		textFieldAppointmentId.textProperty().removeListener(listener);
-//		textFieldAppointmentId.clear();
 
 	}
 	
